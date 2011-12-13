@@ -6,6 +6,9 @@
 </head>
 <body>
 <h1>We'll leave you quizicled!</h1>
+<p>
+	<a href="quizsummary.php?id=119">Japanese</a>
+</p> 
     <?php
 
 	?>
