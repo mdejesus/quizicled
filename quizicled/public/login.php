@@ -31,7 +31,7 @@
 		
 		// query database
 		$con = connect();
-		$result = mysql_query("SELECT * FROM user WHERE username LIKE '" . $username . "';", $con);
+		$result = mysql_query("SELECT * FROM user WHERE username LIKE '" . $username . "'", $con);
 		if ($result == false) {
 			return "error connecting to server.";
 		}
@@ -51,7 +51,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=MS932">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF8">
 <title>Insert title here</title>
 </head>
 
