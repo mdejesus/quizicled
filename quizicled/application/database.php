@@ -13,7 +13,7 @@ function connect() {
 		die('Could not connect: ' . mysql_error());
 	}
 	mysql_select_db($mysql_database,$con);
-	mysql_query("SET NAMES 'utf8' COLLATE 'utf8_unicode_ci';", $con);
+	mysql_query("SET NAMES 'utf8' COLLATE 'utf8_unicode_ci'", $con);
 	return $con;
 }
 
