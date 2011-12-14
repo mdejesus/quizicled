@@ -7,8 +7,9 @@
 <body>
     <?php
     
-    include '../application/database.php';    
-    $con = connect();
+    include '../application/database.php';   
+    include '../application/quiz.php'; 
+    //$con = connect();
     
     // default values
     $id = 0;
@@ -21,7 +22,7 @@
 
 	if (array_key_exists("id", $_GET)) {
 		$id = $_GET["id"];
-		$quiz = getQuiz($id, $con);
+		$quiz = getQuiz($id);
 		if ($quiz != false) {
 			// parse parameters
 			$name=$quiz["name"];
@@ -30,12 +31,7 @@
 	}    
 
 	// end execution part
-	function getQuiz($id, $con) {
-		$result = mysql_query("SELECT * FROM quiz WHERE id = " . $id);
-		if ($result == false)
-			return "cannot connect to server.";
-		return mysql_fetch_array($result, MYSQL_ASSOC);
-	}
+	
 	?>
 	
 	<h1><?php echo $name; ?></h1>
