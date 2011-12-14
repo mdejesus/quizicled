@@ -9,14 +9,10 @@
     
     include '../application/database.php';   
     include '../application/quiz.php'; 
-    //$con = connect();
     
     // default values
     $id = 0;
     $name = "Quiz Name";
-    $random = false;
-    $multipage = false;
-    $feedback = false;
     $description = "Quiz Description";
     $creator = 0;
 
@@ -30,14 +26,12 @@
 		}
 	}    
 
-	// end execution part
-	
 	?>
 	
 	<h1><?php echo $name; ?></h1>
 	<p><?php echo $description; ?></p>
-	<form name="quizsummaryform" action="takefullquiz.jsp" method="post">
-	<input name="quizid" type="hidden" value="<?php echo $id; ?>" />
+	<form name="quizsummaryform" action="quizengine.php" method="post">
+	<input name="id" type="hidden" value="<?php echo $id; ?>" />
 	<input type="submit" value="Take Quiz Now!" />
 	</form>
 </body>
