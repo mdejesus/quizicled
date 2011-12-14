@@ -1,12 +1,13 @@
 <?php
 
 include '../application/database.php';
-include '../application/quiz.php';
+include '../application/quizbank.php';
 include '../application/questionbank.php';
 
 /*
  * Variables in the session
  * quizid
+ * quizname
  * feedback
  * questions
  * questionsindex
@@ -29,6 +30,7 @@ if (array_key_exists("id", $_POST)) {
 	$quiz = getQuiz($id);
 	if ($quiz != false) {
 		// parse parameters
+		$_SESSION['quizname']=$quiz["name"];
 		$random=$quiz["random"] ? true : false;
 		$multipage=$quiz["multipage"] ? true : false;
 		$feedback=$quiz["feedback"] ? true : false;

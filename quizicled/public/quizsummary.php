@@ -8,7 +8,7 @@
     <?php
     
     include '../application/database.php';   
-    include '../application/quiz.php'; 
+    include '../application/quizbank.php'; 
     
     // default values
     $id = 0;

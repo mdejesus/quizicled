@@ -9,12 +9,5 @@ class quiz
 	}
 }
 
-function getQuiz($id) {
-	global $con;
-	$result = mysql_query("SELECT * FROM quiz WHERE id = " . $id);
-	if ($result == false)
-		return "cannot connect to server.";
-	return mysql_fetch_array($result, MYSQL_ASSOC);
-}
 
 ?>
