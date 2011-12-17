@@ -22,21 +22,21 @@
 	 * @param string $password a SHA1 hash of the password
 	 * @return void|string
 	 */
-	function login(string $username, string $password) {
+	function login($username, $password) {
 		
+		global $con;
 		$badloginmsg = "Incorrect username or password.";
 		
 		if ($username == "" || $password == "")
 			return;
 		
 		// query database
-		$con = connect();
 		$result = mysql_query("SELECT * FROM user WHERE username LIKE '" . $username . "'", $con);
 		if ($result == false) {
 			return "error connecting to server.";
 		}
 
-		// 
+		// check results for password match
 		$row = mysql_fetch_array($result, MYSQL_ASSOC);
 		if ($row != false) {
 			if ($password == $row["password"]) {
@@ -52,10 +52,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF8">
-<title>Insert title here</title>
+<title>Account Login</title>
 </head>
 
 <body>
+<h1>Account Login</h1>
 	<form name="loginform" method="post">
 		username: <input name="username" type="text" /><br />
 		password: <input name="password" type="password" /><br />
@@ -64,5 +65,6 @@
 	<?php
 		echo $message;
 	?>
+	<a href="createaccount.php">Create a new account</a>
     </body>
 </html>
