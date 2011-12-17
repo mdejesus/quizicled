@@ -10,10 +10,12 @@ $message="";
 if (key_exists("username", $_POST))
 $username = $_POST["username"];
 if (key_exists("password", $_POST))
-$password = hash("sha1", $_POST["password"], false);
+$password = $_POST["password"];
 
-if ($username != "" && $password != "") {
+if ($username != "" || $password != "") {
+	$password = hash("sha1", $_POST["password"], false);
 	if (createaccount($username, $password) == true) {
+		// TODO set login cookie
 		header( 'Location: index.php' );
 	}
 	else {

@@ -9,9 +9,12 @@
 	if (key_exists("username", $_POST))
 		$username = $_POST["username"];
 	if (key_exists("password", $_POST))
-		$password = hash("sha1", $_POST["password"], false);
+		$password = $_POST["password"];
 
-	$message=login($username, $password);
+	if ($username != "" || $password != "") {
+		$password = hash("sha1", $_POST["password"], false);
+		$message=login($username, $password);
+	}
 	
 	// end execution
 	
@@ -26,9 +29,6 @@
 		
 		global $con;
 		$badloginmsg = "Incorrect username or password.";
-		
-		if ($username == "" || $password == "")
-			return;
 		
 		// query database
 		$result = mysql_query("SELECT * FROM user WHERE username LIKE '" . $username . "'", $con);
