@@ -41,7 +41,7 @@
 		if ($row != false) {
 			if ($password == $row["password"]) {
 				// Login successful
-				return "Welcome!";			
+				header( 'Location: index.php' );			
 			}
 		}
 		return $badloginmsg;
