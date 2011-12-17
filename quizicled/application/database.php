@@ -10,9 +10,9 @@ function connect() {
 	global $con;
 	
 	// database login parameters
-	$mysql_host = "mysql-user-master.stanford.edu";
-	$mysql_database = "c_cs108_mdejesus";
-	$mysql_user = "ccs108mdejesus";
+	$mysql_host = "localhost";
+	$mysql_database = "quizicled";
+	$mysql_user = "mdejesus";
 	$mysql_password = "uapooquu";
 	
 	// connect to the server
