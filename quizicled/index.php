@@ -5,6 +5,9 @@
 <title>Quizicled</title>
 </head>
 <body>
+
+<?php include 'public/header.php'; ?>
+
 <h1>We'll leave you quizicled!</h1>
 <p><a href="public/createquiz.php">Create a Quiz</a></p>
 <p>
