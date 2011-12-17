@@ -1,6 +1,7 @@
 <?php
 
 include '../application/database.php';
+include '../application/database.php';
 
 $username="";
 $password="";
@@ -15,8 +16,8 @@ $password = $_POST["password"];
 if ($username != "" || $password != "") {
 	$password = hash("sha1", $_POST["password"], false);
 	if (createaccount($username, $password) == true) {
-		// TODO set login cookie
-		header( 'Location: index.php' );
+		// login the user and go to home page
+		login($username, $password);
 	}
 	else {
 		$message="Username is taken.";
@@ -49,6 +50,8 @@ function createaccount($username, $password) {
     <form name="createform" method="post">
 		username: <input name="username" type="text" /><br />
 		password: <input name="password" type="password" /><br />
+		Please do NOT use an important personal password (like the password to your bank account)!
+		This website is for fun only, we do not guarantee the safety of your personal information!<br /> 
 		<input type="submit" />
 	</form>
 	<?php

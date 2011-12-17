@@ -1,5 +1,6 @@
 <?php
 	include '../application/database.php';
+	include '../application/user.php';
 	
 	$username="";
 	$password="";
@@ -15,37 +16,7 @@
 		$password = hash("sha1", $_POST["password"], false);
 		$message=login($username, $password);
 	}
-	
-	// end execution
-	
-	/**
-	 * 
-	 * Logs in a user.
-	 * @param string $username cleartext
-	 * @param string $password a SHA1 hash of the password
-	 * @return void|string
-	 */
-	function login($username, $password) {
-		
-		global $con;
-		$badloginmsg = "Incorrect username or password.";
-		
-		// query database
-		$result = mysql_query("SELECT * FROM user WHERE username LIKE '" . $username . "'", $con);
-		if ($result == false) {
-			return "error connecting to server.";
-		}
 
-		// check results for password match
-		$row = mysql_fetch_array($result, MYSQL_ASSOC);
-		if ($row != false) {
-			if ($password == $row["password"]) {
-				// Login successful
-				header( 'Location: index.php' );			
-			}
-		}
-		return $badloginmsg;
-	}
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
